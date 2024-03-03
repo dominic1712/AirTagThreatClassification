@@ -186,7 +186,7 @@ def threat_classification_tree():
 
 def traverse_threat_classification_tree(tree):
     current_node = '1.'
-
+    history = []
     while True:
         print("")
         if 'question' in tree[current_node]:
@@ -205,13 +205,27 @@ def traverse_threat_classification_tree(tree):
                 print("The following privacy requirements are threatened: " + tree[current_node]['privacy requirement'])
             else:
                 print("The following privacy requirement is threatened: " + tree[current_node]['privacy requirement'])
-            break
-
+            print("")
+            if tree[current_node] not in history: 
+                history.append(tree[current_node])
+            user_input = input("This threat has been added to your current set of threats you analyzed. Do you want to rerun the classification tree? (yes/no)\n").lower()
+            if user_input == "no":
+                print("End of Threat Analysis\n")
+                return history
+            else:
+                current_node = '1.'
+    
 
 def main():
     tree = threat_classification_tree()
-    traverse_threat_classification_tree(tree)
-
+    history = traverse_threat_classification_tree(tree)
+    print("Following is a set of threats you've analyzed")
+    for threat in history:
+        print("\n")
+        print(threat['information'])
+        print(threat['threat'])
+        print(threat['privacy requirement'])
+        print("\n")
 
 if __name__ == "__main__":
     main()
