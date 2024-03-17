@@ -68,9 +68,10 @@ def threat_classification_tree():
             }
         },
         '1.1.1 Inadvertent Disabling of the ISA': {
-            'information': 'Information: As the ISA is a pop up notification on the iPhone lockscreen, '
-                           'it is possible, that the notification could be disabled by accident.',
-            'threat': 'Threat: It could occur, that the ISA appears on the home screen at an inconvenient time, where the user mindlessly disregards and disables it. After disabling it, it is gone and will not be triggered again.',
+            'information': 'Information: The owner could inadvertantly disable the ISA from triggering by turning off location services '
+                           'in the iOS settings. ',
+            'threat': 'Threat: The owner of an iOS smartphone would not be alerted if an unknown AirTag is moving with him for an extensive'
+            ' amount of time. Many users disable location services to increase their own privacy, yet it is not clear that turning off location services also disables the ISA.',
             'privacy requirement': '(1) Awareness'
 
         },
@@ -183,9 +184,9 @@ def threat_classification_tree():
     }
     return classification_tree
 
-intro_text = print("""----------------------------------------------------------------------------------------------------------------------------------------------------------------
+intro_text = print("""----------------------------------------
 Welcome to the AirTag Classification Tree
-----------------------------------------------------------------------------------------------------------------------------------------------------------------            
+----------------------------------------          
 This Tree was designed to exploratively analyze current AirTag-related threats. 
 For each threat, there are three parts:
     -An information: How to achieve the threat?
@@ -239,7 +240,7 @@ def traverse_threat_classification_tree(tree):
                 history.append(tree[current_node])
             user_input = input("This threat has been added to your current set of threats you analyzed. Do you want to rerun the classification tree? (yes/no)\n").lower()
             if user_input == "no":
-                print("End of Threat Analysis\n")
+                print("\n----------------------------\nEnd of Threat Analysis\n----------------------------\n")
                 return history
             else:
                 current_node = '1.'
