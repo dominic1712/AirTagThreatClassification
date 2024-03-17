@@ -188,6 +188,9 @@ intro_text = print("""---------------------------------------------
 Welcome to the AirTag Classification Tree
 ---------------------------------------------          
 This Tree was designed to exploratively analyze current AirTag-related threats. 
+
+It runs on Python Version 3.12.2  
+                   
 For each threat, there are three parts:
     -An information: How to achieve the threat?
     -Threat: What makes it a threat?
