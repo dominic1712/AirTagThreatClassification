@@ -184,9 +184,9 @@ def threat_classification_tree():
     }
     return classification_tree
 
-intro_text = print("""----------------------------------------
+intro_text = print("""---------------------------------------------
 Welcome to the AirTag Classification Tree
-----------------------------------------          
+---------------------------------------------          
 This Tree was designed to exploratively analyze current AirTag-related threats. 
 For each threat, there are three parts:
     -An information: How to achieve the threat?
